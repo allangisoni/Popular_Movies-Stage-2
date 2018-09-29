@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Pendo Moviz</string>
+
+    <!-- Settings prefences -->
+    <string name="pref_sort_label">Sort Movies</string>
+    <string name="pref_sort_top_rated_label">Top Rated</string>
+    <string name="pref_sort_most_popuar_label">Most Popular</string>
+    <string name="pref_sort_favorite_movies_label">Favorite Movies</string>
+
+    <string name="pref_sort_key" translatable="false">Sort By</string>
+    <string name="pref_sort_top_rated_value" translatable="false">Top Rated</string>
+    <string name="pref_sort_most_popuar_value" translatable="false">Most Popular</string>
+    <string name="pref_sort_favorite_movies" translatable="false">Favorite Movies</string>
+    <string name="settings">Settings</string>
+    <string name="refresh">Refresh</string>
+    <string name="detailsthumbnail">Details Thumbnail Image</string>
+    <string name="title">Title</string>
+    <string name="release_date">Release Date</string>
+    <string name="rating_image">Rating Image</string>
+    <string name="description">Description</string>
+    <string name="_5_0">5.0</string>
+    <string name="released_on">Released on:</string>
+    <string name="trailer">Trailers</string>
+    <string name="thumbnailBackdrop">Thumbnail Backdrop Image</string>
+    <string name="reviews">Reviews</string>
+    <string name="favorite_image">Favorite Image</string>
+    <string name="reviewsTrailers">Check out the Reviews and Trailers</string>
+
+
+
+</resources>

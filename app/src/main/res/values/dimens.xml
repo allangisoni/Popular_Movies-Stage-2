@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_detail_margin">8dp</dimen>
+    <dimen name="thumbnail_height">300dp</dimen>
+    <dimen name="activity_detail_margin16">16dp</dimen>
+    <dimen name="activity_details_padding_top">12dp</dimen>
+    <dimen name="activity_detail_rating_width">38dp</dimen>
+    <dimen name="activity_detail_rating_height">38dp</dimen>
+    <dimen name="activity_detail_rating_marginStart">24dp</dimen>
+    <dimen name="activity_detail_rating_marginTop">32dp</dimen>
+
+    <dimen name="activity_detail_image_width">152dp</dimen>
+    <dimen name="activity_detail_image_height">222dp</dimen>
+    <dimen name="activity_detail_image_marginTop">204dp</dimen>
+
+    <!-- details activity for tablets -->
+    <dimen name="thumbnail_height_tablet">430dp</dimen>
+    <dimen name="activity_detail_description_marginTop">64dp</dimen>
+    <dimen name="activity_detail_rating_width_tablet">42dp</dimen>
+    <dimen name="activity_detail_rating_height_tablet">42dp</dimen>
+    <dimen name="activity_detail_rating_marginStart_tablet">56dp</dimen>
+    <dimen name="activity_detail_rating_marginTop_tablet">4dp</dimen>
+    <dimen name="activity_detail_image_width_tablet">211dp</dimen>
+    <dimen name="activity_detail_image_height_tablet">324dp</dimen>
+    <dimen name="activity_detail_image_marginTop_tablet">216dp</dimen>
+
+</resources>

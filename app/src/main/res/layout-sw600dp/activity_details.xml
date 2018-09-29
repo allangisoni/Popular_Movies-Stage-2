@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.DetailsActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:translationZ="0.1dp"
+        app:elevation="0dp">
+
+        <include
+            layout="@layout/mytransparenttoolbar"
+            android:id="@+id/toolbar"/>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/ivThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/thumbnail_height_tablet"
+        android:contentDescription="@string/detailsthumbnail"
+        android:scaleType="centerCrop"
+        android:src="@drawable/diariesposter" />
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_detail_margin"
+        android:layout_marginStart="@dimen/activity_detail_margin"
+        android:layout_marginTop="@dimen/activity_detail_margin16"
+        android:padding="@dimen/activity_details_padding_top"
+        android:text="@string/title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivThumbnailBackdrop"
+        app:layout_constraintTop_toBottomOf="@+id/ivThumbnail" />
+
+
+    <TextView
+        android:id="@+id/tvReleaseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_detail_margin"
+        android:layout_marginStart="@dimen/activity_detail_margin"
+        android:gravity="center_vertical"
+        android:text="@string/release_date"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
+
+    <com.codesgood.views.JustifiedTextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_detail_margin"
+        android:layout_marginStart="@dimen/activity_detail_margin"
+        android:layout_marginTop="@dimen/activity_detail_description_marginTop"
+        android:lineSpacingMultiplier="1.15"
+        android:padding="@dimen/activity_details_padding_top"
+        android:text="@string/description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/activity_detail_rating_width_tablet"
+        android:layout_height="@dimen/activity_detail_rating_height_tablet"
+        android:layout_marginStart="@dimen/activity_detail_rating_marginStart_tablet"
+        android:layout_marginTop="@dimen/activity_detail_rating_marginTop_tablet"
+        android:contentDescription="@string/rating_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/star"
+        android:tint="@color/colorAccent"
+        app:layout_constraintStart_toEndOf="@+id/ivThumbnailBackdrop"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_detail_margin"
+        android:gravity="center_vertical"
+        android:text="@string/_5_0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/ivThumbnailBackdrop"
+        android:layout_width="@dimen/activity_detail_image_width_tablet"
+        android:layout_height="@dimen/activity_detail_image_height_tablet"
+        android:layout_marginTop="@dimen/activity_detail_image_marginTop_tablet"
+        android:scaleType="centerCrop"
+        android:src="@drawable/originalsposter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        android:contentDescription="@string/thumbnailBackdrop"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_detail_margin"
+        android:layout_marginTop="@dimen/activity_detail_margin"
+        android:text="@string/released_on"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintBottom_toBottomOf="@+id/ivThumbnailBackdrop"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/tvRating"
+        app:layout_constraintVertical_bias="0.564" />
+
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

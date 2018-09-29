@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.pendomoviz">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- This permissions are neccessary for broadcast receiver -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".NetworkConnection.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DetailsActivity"
+            android:label="Details"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+
+        <!-- Broadcast receiver declaration in manifest file and make sure to enable it -->
+        <receiver
+            android:name=".InternetConnector_Receiver"
+            android:enabled="true">
+            <intent-filter>
+
+                <!-- Intent filters for broadcast receiver -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+       <activity android:name=".fragments.ReviewsFragment" />
+        <activity android:name=".fragments.TrailersFragment" />
+        <activity android:name=".activity.DetailsMain"
+            android:label="DetailsMain"
+            android:parentActivityName=".activity.DetailsActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.DetailsActivity" />
+        </activity>
+    </application>
+
+</manifest>
