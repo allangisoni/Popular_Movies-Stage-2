@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class MovieDetailsFragment extends Fragment {
-    private TextView tvTitle, tvReleaseDate, tvDescription, tvRating, tvReviewsTrailers;
+    private TextView tvTitle, tvReleaseDate, tvDescription, tvRating, tvGenres;
 
     private ImageView ivThumbnail, ivThumbnailBackdrop, ivFavorites;
     private Toolbar toolbar;
@@ -36,28 +36,14 @@ public class MovieDetailsFragment extends Fragment {
     private String backdropPath, posterPath;
 
 
-    private FavoritesDb favoritesDb;
-    Intent intent;
-
     private  boolean isFavorite;
-    //  private ListView listView;
 
-    private String[] values;
 
 
 
     RecyclerView mRecyclerView;
 
-    ReviewsAdapter mAdapter;
-    RecyclerView.LayoutManager mLayoutManager;
 
-    private final static String API_KEY = "7f10a990314c43d89d94b1380199202d";
-
-    final TMdbApiInterface tMdbApiInterface = TMdbApiClient.getClient().create(TMdbApiInterface.class);
-
-    List<Reviews> movizs;
-
-    int movieId;
 
     Moviz moviz;
 
@@ -96,7 +82,20 @@ public class MovieDetailsFragment extends Fragment {
         addFavoriteViewModel = ViewModelProviders.of(this).get(AddFavoriteViewModel.class);
         favoritesViewModel = ViewModelProviders.of(this).get(FavoritesViewModel.class);
 
-         setMovieDetails();
+     /**   if(savedInstanceState != null){
+            tvTitle.setText(savedInstanceState.getString("title"));
+            tvReleaseDate.setText(savedInstanceState.getString("tvReleaseDate"));
+            tvDescription.setText(savedInstanceState.getString("description"));
+            tvRating.setText(savedInstanceState.getString("rating"));
+            Picasso.with(getContext()).load(IMAGE_URL_BASE_PATH + savedInstanceState.getString( "thumbnail")).placeholder(R.drawable.mtvmovies).error(R.drawable.imagenotfound3).into(ivThumbnail);
+            Picasso.with(getContext()).load(IMAGE_URL_BASE_PATH +savedInstanceState.getString( "thumbnailBackdrop")).placeholder(R.drawable.mtvmovies).error(R.drawable.imagenotfound).into(ivThumbnailBackdrop);
+            isFavorite = savedInstanceState.getBoolean("isFavorite");
+            setFavorite(isFavorite);
+        }else{ **/
+            setMovieDetails();
+       // }
+
+
 
 
 
@@ -142,8 +141,10 @@ public class MovieDetailsFragment extends Fragment {
         tvRating = rootView.findViewById(R.id.tvRating);
         ivThumbnailBackdrop = rootView.findViewById(R.id.ivThumbnailBackdrop);
         ivFavorites = rootView.findViewById(R.id.imageViewFavorite);
-        tvReviewsTrailers = rootView.findViewById(R.id.tvReviewsTrailers);
+        //tvReviewsTrailers = rootView.findViewById(R.id.tvReviewsTrailers);
         mRecyclerView = rootView.findViewById(R.id.reviewMovizz);
+        tvGenres = rootView.findViewById(R.id.tvGenres);
+        tvGenres.setVisibility(View.INVISIBLE);
 
 
 
@@ -175,7 +176,7 @@ public class MovieDetailsFragment extends Fragment {
 
         }
 
-        Toast.makeText(getContext(), ""+moviz.getIsMovieFavorite(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), ""+moviz.getIsMovieFavorite(), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -191,7 +192,7 @@ public class MovieDetailsFragment extends Fragment {
             checkFavorite = "true";
             moviz.setIsMovieFavorite(checkFavorite);
 
-            Toast.makeText(getContext(), "" +moviz.getTitle() +"has been added to favorites ", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getContext(), "" +moviz.getTitle() +"has been added to favorites ", Toast.LENGTH_SHORT).show();
 
 
 
@@ -201,12 +202,26 @@ public class MovieDetailsFragment extends Fragment {
             isFavorite = false;
             checkFavorite = "false";
             moviz.setIsMovieFavorite(checkFavorite);
-            Toast.makeText(getContext(), "" +moviz.getTitle() +"has been removed from favorites ", Toast.LENGTH_SHORT).show();
-
-
+            //Toast.makeText(getContext(), "" +moviz.getTitle() +"has been removed from favorites ", Toast.LENGTH_SHORT).show();
         }
     }
 
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+       // setMovieDetails();
+        outState.putString("title", tvTitle.getText().toString());
+        outState.putString("tvReleaseDate", tvReleaseDate.getText().toString());
+        outState.putString("description", tvDescription.getText().toString());
+        outState.putString("rating", tvRating.getText().toString());
+        outState.putString("thumbnail", backdropPath);
+        outState.putString("thumbnailBackdrop", posterPath);
+        outState.putBoolean("isfavorite", isFavorite);
+
+    }
 
 
 }

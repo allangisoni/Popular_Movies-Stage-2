@@ -58,11 +58,11 @@
         <activity android:name=".fragments.TrailersFragment" />
         <activity android:name=".activity.DetailsMain"
             android:label="DetailsMain"
-            android:parentActivityName=".activity.DetailsActivity">
+            android:parentActivityName=".activity.MainActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.DetailsActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
     </application>
 

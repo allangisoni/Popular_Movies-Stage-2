@@ -1,10 +1,13 @@
 package com.example.android.pendomoviz.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Trailers {
+public class Trailers implements Parcelable{
 
     @SerializedName("id")
     private String id;
@@ -43,4 +46,34 @@ public class Trailers {
     }
 
 
+    private Trailers(Parcel parcel){
+        id= parcel.readString();
+        key= parcel.readString();
+        name = parcel.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return hashCode();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(id);
+        dest.writeString(key);
+        dest.writeString(name);
+    }
+    public static final  Parcelable.Creator<Trailers> CREATOR = new Parcelable.Creator<Trailers>(){
+
+        @Override
+        public Trailers createFromParcel(Parcel source) {
+            return new Trailers(source);
+        }
+
+        @Override
+        public Trailers[] newArray(int size) {
+            return new Trailers[0];
+        }
+    };
 }

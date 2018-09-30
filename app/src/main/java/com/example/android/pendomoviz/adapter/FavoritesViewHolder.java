@@ -29,7 +29,7 @@ public class FavoritesViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(final Moviz favoritemovies, final FavoritesAdapter.OnItemClickListener listener) {
-        Toast.makeText(itemView.getContext(), "" + favoritemovies.getPosterPath(), Toast.LENGTH_LONG).show();
+       // Toast.makeText(itemView.getContext(), "" + favoritemovies.getPosterPath(), Toast.LENGTH_LONG).show();
         Picasso.with(itemView.getContext()).load(IMAGE_URL_BASE_PATH + favoritemovies.getPosterPath()).into(thumbnailImage);
         Log.d(TAG, favoritemovies.getBackdropPath());
         itemView.setOnClickListener(new View.OnClickListener() {

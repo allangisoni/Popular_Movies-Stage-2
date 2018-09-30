@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.android.pendomoviz.BuildConfig;
 import com.example.android.pendomoviz.db.FavoritesViewModel;
 import com.example.android.pendomoviz.NetworkConnection.App;
 import com.example.android.pendomoviz.R;
@@ -42,7 +44,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private final static String API_KEY = "7f10a990314c43d89d94b1380199202d";
+    private final static String API_KEY = BuildConfig.TMDB_API_KEY;
     private static final String TAG = MainActivity.class.getSimpleName();
     RecyclerView recyclerView;
     MovizAdapter movizAdapter;

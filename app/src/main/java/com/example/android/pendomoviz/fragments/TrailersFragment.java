@@ -1,5 +1,7 @@
 package com.example.android.pendomoviz.fragments;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.pendomoviz.BuildConfig;
 import com.example.android.pendomoviz.R;
 import com.example.android.pendomoviz.adapter.ReviewsAdapter;
 import com.example.android.pendomoviz.adapter.TrailersAdapter;
@@ -24,6 +27,7 @@ import com.example.android.pendomoviz.rest.TMdbApiClient;
 import com.example.android.pendomoviz.rest.TMdbApiInterface;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -43,7 +47,11 @@ public class TrailersFragment extends Fragment {
 
     Moviz moviz;
 
-    private final static String API_KEY = "7f10a990314c43d89d94b1380199202d";
+    ArrayList<Trailers> myTrailers;
+
+
+
+    private final static String API_KEY = BuildConfig.TMDB_API_KEY;
 
     final TMdbApiInterface tMdbApiInterface = TMdbApiClient.getClient().create(TMdbApiInterface.class);
     List<Trailers> movizs;
@@ -53,7 +61,10 @@ public class TrailersFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -63,6 +74,7 @@ public class TrailersFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_trailers_fragment, container, false);
 
         initViews(rootView);
+        myTrailers = new ArrayList<>();
 
         Bundle bundle = this.getArguments();
 
@@ -78,7 +90,8 @@ public class TrailersFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        getTrailers();
+      //  getTrailers();
+
 
         return rootView;
     }
@@ -89,6 +102,29 @@ public class TrailersFragment extends Fragment {
 
         mRecyclerView = rootView.findViewById(R.id.rvMovizTrailers);
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+
+            myTrailers = savedInstanceState.getParcelableArrayList("myTrailers");
+            movizs = myTrailers;
+            mAdapter = new TrailersAdapter(movizs, getContext(), new TrailersAdapter.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(Trailers movizitem) {
+
+                }
+            });
+
+            mRecyclerView.setAdapter(mAdapter);
+        }
+        else {
+            getTrailers();
+        }
     }
 
     /**
@@ -104,6 +140,7 @@ public class TrailersFragment extends Fragment {
             public void onResponse(Call<TrailersResponse> call, Response<TrailersResponse> response) {
                 if (response.isSuccessful()) {
                     movizs = response.body().getResults();
+                    myTrailers = (ArrayList)movizs;
 
                     mAdapter = new TrailersAdapter(movizs, getContext(), new TrailersAdapter.OnItemClickListener(){
 
@@ -146,5 +183,12 @@ public class TrailersFragment extends Fragment {
 
 
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelableArrayList("myTrailers", myTrailers);
     }
 }

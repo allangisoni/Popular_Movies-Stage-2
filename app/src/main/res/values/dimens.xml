@@ -23,5 +23,21 @@
     <dimen name="activity_detail_image_width_tablet">211dp</dimen>
     <dimen name="activity_detail_image_height_tablet">324dp</dimen>
     <dimen name="activity_detail_image_marginTop_tablet">216dp</dimen>
+    <dimen name="trailers_fragment_margin">222dp</dimen>
+    <dimen name="reviews_fragment_marginStart">28dp</dimen>
+    <dimen name="reviews_fragment_tvmarginStart">2dp</dimen>
 
+    <dimen name="trailers_fragment_ivTrailerHeight">45dp</dimen>
+    <dimen name="trailers_fragment_ivTrailerWidth">60dp</dimen>
+    <dimen name="details_fragment_ivRatingStart">84dp</dimen>
+    <dimen name="details_fragment_ivRatingMarginTop">36dp</dimen>
+    <dimen name="details_fragment_tvMarginTop">24dp</dimen>
+    <dimen name="activity_detail_image_width_tabletvariation">211dp</dimen>
+    <dimen name="activity_detail_image_height_tabletvariation">424dp</dimen>
+    <dimen name="thumbnailbackdrop_height">248dp</dimen>
+    <dimen name="thumbnailbackdrop_width">168dp</dimen>
+    <dimen name="thumbnailbackdrop_Start">48dp</dimen>
+    <dimen name="thumbnailbackdrop_MarginTop">340dp</dimen>
+    <dimen name="trailers_fragment_ivFavoriteHeight">65dp</dimen>
+    <dimen name="trailers_fragment_ivFavoriteWidth">65dp</dimen>
 </resources>

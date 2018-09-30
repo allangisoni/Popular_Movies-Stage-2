@@ -41,7 +41,7 @@ public class InternetConnector_Receiver extends BroadcastReceiver {
                     new MainActivity().loadMoviesFromSharedPreferences(true);
 
                 } else {
-                    Toast.makeText(context, "Internet connection disconnected", Toast.LENGTH_LONG).show();
+                   Toast.makeText(context, "Internet connection disconnected", Toast.LENGTH_LONG).show();
                 }
             }
         } catch (Exception e) {

@@ -25,7 +25,12 @@
     <string name="reviews">Reviews</string>
     <string name="favorite_image">Favorite Image</string>
     <string name="reviewsTrailers">Check out the Reviews and Trailers</string>
-
+    <string name="review_description"> Review Description</string>
+    <string name="iv_trailers"> Youtube trailrs</string>
+    <string name="author_name">Author_name:</string>
+    <string name="genres">Genres</string>
+    <string name="trailername">TrailerName</string>
+    <string name="share">share</string>
 
 
 </resources>

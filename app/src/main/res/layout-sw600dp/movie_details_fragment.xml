@@ -31,7 +31,7 @@
         <ImageView
             android:id="@+id/ivThumbnail"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/thumbnail_height"
+            android:layout_height="@dimen/activity_detail_image_height_tabletvariation"
             android:contentDescription="@string/detailsthumbnail"
             android:scaleType="centerCrop"
             android:src="@drawable/diariesposter" />
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/activity_detail_margin"
             android:layout_marginStart="@dimen/activity_detail_margin"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/details_fragment_tvMarginTop"
             android:padding="@dimen/activity_details_padding_top"
             android:text="@string/title"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -65,37 +65,37 @@
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/textView" />
 
-     <com.codesgood.views.JustifiedTextView
-         android:id="@+id/tvDescription"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginBottom="8dp"
-         android:layout_marginEnd="@dimen/activity_detail_margin"
-         android:layout_marginStart="@dimen/activity_detail_margin"
-         android:layout_marginTop="@dimen/activity_detail_margin"
-         android:lineSpacingMultiplier="1.15"
-         android:text="@string/description"
-         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-         app:layout_constraintVertical_bias="0.0" />
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_detail_margin"
+            android:layout_marginStart="@dimen/activity_detail_margin"
+            android:layout_marginTop="@dimen/activity_detail_margin"
+            android:lineSpacingMultiplier="1.15"
+            android:text="@string/description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintVertical_bias="0.0"
+            />
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="@dimen/activity_detail_rating_width"
-            android:layout_height="@dimen/activity_detail_rating_height"
-            android:layout_marginStart="@dimen/activity_detail_rating_marginStart"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/rating_image"
-            android:scaleType="centerCrop"
-            android:src="@drawable/star"
-            android:tint="@color/colorAccent"
-            app:layout_constraintStart_toEndOf="@+id/ivThumbnailBackdrop"
-            app:layout_constraintTop_toBottomOf="@+id/ivThumbnail" />
+     <ImageView
+         android:id="@+id/imageView"
+         android:layout_width="@dimen/activity_detail_rating_width"
+         android:layout_height="@dimen/activity_detail_rating_height"
+         android:layout_marginStart="@dimen/details_fragment_ivRatingStart"
+         android:layout_marginTop="@dimen/details_fragment_ivRatingMarginTop"
+         android:contentDescription="@string/rating_image"
+         android:scaleType="centerCrop"
+         android:src="@drawable/star"
+         android:tint="@color/colorAccent"
+         app:layout_constraintStart_toEndOf="@+id/ivThumbnailBackdrop"
+         app:layout_constraintTop_toBottomOf="@+id/ivThumbnail" />
 
         <TextView
             android:id="@+id/tvRating"
@@ -110,45 +110,45 @@
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-        <ImageView
-            android:id="@+id/ivThumbnailBackdrop"
-            android:layout_width="139dp"
-            android:layout_height="@dimen/activity_detail_image_height"
-            android:layout_marginStart="@dimen/activity_detail_rating_marginStart"
-            android:layout_marginTop="@dimen/activity_detail_image_marginTop"
-            android:contentDescription="@string/thumbnailBackdrop"
-            android:scaleType="centerCrop"
-            android:src="@drawable/originalsposter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivThumbnail" />
+     <ImageView
+         android:id="@+id/ivThumbnailBackdrop"
+         android:layout_width="@dimen/thumbnailbackdrop_width"
+         android:layout_height="@dimen/thumbnailbackdrop_height"
+         android:layout_marginStart="@dimen/thumbnailbackdrop_Start"
+         android:layout_marginTop="@dimen/thumbnailbackdrop_MarginTop"
+         android:contentDescription="@string/thumbnailBackdrop"
+         android:scaleType="centerCrop"
+         android:src="@drawable/originalsposter"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="@+id/ivThumbnail" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/activity_detail_margin"
+            android:layout_marginTop="@dimen/activity_detail_margin16"
             android:text="@string/released_on"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
-        <ImageView
-            android:id="@+id/imageViewFavorite"
-            android:layout_width="@dimen/activity_detail_rating_height"
-            android:layout_height="@dimen/activity_detail_rating_height"
-            android:layout_marginEnd="@dimen/activity_detail_margin"
-            android:layout_marginStart="@dimen/activity_detail_margin"
-            android:layout_marginTop="@dimen/trailers_fragment_margin"
-            android:contentDescription="@string/favorite_image"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_favorite"
-            android:tint="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.86"
-            app:layout_constraintStart_toEndOf="@+id/ivThumbnailBackdrop"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+     <ImageView
+         android:id="@+id/imageViewFavorite"
+         android:layout_width="@dimen/trailers_fragment_ivFavoriteWidth"
+         android:layout_height="@dimen/trailers_fragment_ivFavoriteHeight"
+         android:layout_marginEnd="@dimen/activity_detail_margin"
+         android:layout_marginStart="@dimen/activity_detail_margin"
+         android:layout_marginTop="336dp"
+         android:contentDescription="@string/favorite_image"
+         android:scaleType="centerCrop"
+         android:src="@drawable/ic_favorite"
+         android:tint="@android:color/white"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.805"
+         app:layout_constraintStart_toEndOf="@+id/ivThumbnailBackdrop"
+         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
         <TextView
             android:id="@+id/tvGenres"

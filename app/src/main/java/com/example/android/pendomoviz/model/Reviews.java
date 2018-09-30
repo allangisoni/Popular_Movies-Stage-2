@@ -6,7 +6,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Reviews {
+public class Reviews implements Parcelable{
 
     @SerializedName("author")
     private String author;
@@ -73,4 +73,39 @@ public class Reviews {
     public String getUrl() {
         return url;
     }
+
+    private Reviews(Parcel parcel){
+        author = parcel.readString();
+        id = parcel.readString();
+        content = parcel.readString();
+        url = parcel.readString();
+
+
+    }
+
+    @Override
+    public int describeContents() {
+        return hashCode();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(author);
+        dest.writeString(id);
+        dest.writeString(content);
+        dest.writeString(url);
+    }
+
+    public static final  Parcelable.Creator<Reviews> CREATOR = new Parcelable.Creator<Reviews>(){
+
+        @Override
+        public Reviews createFromParcel(Parcel source) {
+            return new Reviews (source);
+        }
+
+        @Override
+        public Reviews [] newArray(int size) {
+            return new Reviews[0];
+        }
+    };
 }

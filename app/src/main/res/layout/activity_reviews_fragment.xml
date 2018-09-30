@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,14 +8,17 @@
     tools:context=".fragments.ReviewsFragment">
 
 
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reviewMoviz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fadeScrollbars="true"
         android:layout_below="@id/appBarLayout"
-        android:scrollbars="vertical"/>
+        android:layout_marginEnd="@dimen/activity_detail_margin"
+        android:layout_marginStart="@dimen/activity_detail_margin"
+        android:fadeScrollbars="true"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 

@@ -155,7 +155,7 @@ public class DetailsActivity extends AppCompatActivity {
             isFavorite = true;
         }
          else{
-            ivFavorites.setColorFilter(getResources().getColor(R.color.blue));
+            ivFavorites.setColorFilter(getResources().getColor(R.color.colorWhite));
             isFavorite = false;
 
         }
